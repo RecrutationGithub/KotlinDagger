@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Bill reminder</string>
+
+    <!-- MainActivity -->
+    <string name="menuDashboard">Dashboard</string>
+    <string name="menuSettings">Settings</string>
+    <string name="menuBills">Bills</string>
+    <string name="noBillsAvailable">There are no bills to show</string>
+
+    <!-- DashboardFragment -->
+    <string name="errorCannotFetchBills">Cannot fetch bills</string>
+
+    <!-- BillsFragment -->
+    <string name="deleteBill">Delete bill</string>
+    <string name="notPaidYet">Not paid yet</string>
+    <string name="lastPayment">"Last payment: "</string>
+    <string name="errorCannotDeleteBill">Unable to delete the bill</string>
+
+    <string name="deleted">DELETED FOR PRIVACY</string>
+</resources>

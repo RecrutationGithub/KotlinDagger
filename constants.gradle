@@ -1,0 +1,18 @@
+ext {
+    app = [
+            buildTools: "28.0.2",
+            baseId: "com.billreminder",
+            apiUrl: '"todo.modifiedForPrivacy.com"'
+    ]
+
+    sdk = [
+            min: 21,
+            target: 28,
+            compile: 28
+    ]
+
+    lang = [
+            source: JavaVersion.VERSION_1_8,
+            target: JavaVersion.VERSION_1_8
+    ]
+}

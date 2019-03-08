@@ -1,0 +1,40 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="padding_xsmall">2dp</dimen>
+    <dimen name="padding_small">4dp</dimen>
+    <dimen name="padding_default">8dp</dimen>
+    <dimen name="padding_large">16dp</dimen>
+    <dimen name="padding_xlarge">24dp</dimen>
+    <dimen name="padding_xxlarge">48dp</dimen>
+    <dimen name="padding_xxxlarge">64dp</dimen>
+
+    <dimen name="font_small">12sp</dimen>
+    <dimen name="font_default">14sp</dimen>
+    <dimen name="font_large">16sp</dimen>
+    <dimen name="font_xlarge">20sp</dimen>
+    <dimen name="font_xxlarge">24sp</dimen>
+    <dimen name="font_xxxlarge">32sp</dimen>
+
+    <dimen name="font_header_xsmall">18sp</dimen>
+    <dimen name="font_header_small">24sp</dimen>
+    <dimen name="font_header">34sp</dimen>
+    <dimen name="font_header_large">45sp</dimen>
+
+    <dimen name="auth_button_width">100dp</dimen>
+    <dimen name="auth_edit_text_height">84dp</dimen>
+    <dimen name="auth_header_height">160dp</dimen>
+
+    <dimen name="default_button_width">120dp</dimen>
+    <dimen name="list_button_size">40dp</dimen>
+    <dimen name="header_image_height">160dp</dimen>
+
+    <dimen name="dashboard_bill_padding">32dp</dimen>
+    <dimen name="dashboard_bill_height">72dp</dimen>
+    <dimen name="dashboard_bill_circle_size">12dp</dimen>
+    <dimen name="dashboard_bill_small_circle_size">8dp</dimen>
+
+    <dimen name="vertical_separator_width">1dp</dimen>
+</resources>

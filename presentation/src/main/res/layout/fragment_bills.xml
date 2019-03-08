@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="model"
+            type="com.billreminder.ui.bills.BillsViewModel" />
+
+        <variable
+            name="view"
+            type="com.billreminder.ui.bills.BillsFragment" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBackgroundLight">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            android:fitsSystemWindows="true">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?android:attr/actionBarSize"
+                app:title="@string/menuBills"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:layout_collapseMode="pin" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorBackgroundLight"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <include layout="@layout/view_no_bills_available"
+                android:id="@+id/viewNoBillsAvailable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:visibility="invisible"
+                tools:visibility="visible"/>
+
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/refreshLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:refreshing="@{model.refreshingInProgress}"
+                app:enabled="@{model.refreshingInProgress}"
+                tools:context="com.billreminder.ui.main.MainActivity">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerBills"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:adapter="@{view.adapter}"/>
+
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        </FrameLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabAddBill"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_margin="@dimen/padding_large"
+            android:src="@drawable/ic_credit_card_plus_white_36dp"/>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

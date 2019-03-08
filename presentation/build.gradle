@@ -1,0 +1,117 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'org.jetbrains.kotlin.android.extensions'
+
+androidExtensions {
+    experimental true
+}
+
+repositories {
+    mavenCentral()
+}
+
+android {
+    compileSdkVersion sdk.compile
+    buildToolsVersion '28.0.3'
+
+    lintOptions {
+        abortOnError false
+    }
+
+    dataBinding {
+        enabled true
+    }
+
+    defaultConfig {
+        applicationId "${app.baseId}"
+        minSdkVersion sdk.min
+        targetSdkVersion sdk.target
+        versionCode 1
+        versionName "0.0.1"
+        multiDexEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        debug {
+            buildConfigField "String", 'API_URL', app.apiUrl
+            minifyEnabled false
+            multiDexEnabled true
+        }
+        release {
+            buildConfigField "String", 'API_URL', app.apiUrl
+            minifyEnabled false
+            multiDexEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility lang.source
+        targetCompatibility lang.target
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation jetbrains.kotlin
+    implementation jetbrains.anko
+    implementation jetbrains.ankoDesign
+    implementation jetbrains.ankoCommons
+
+    implementation squareup.retrofit
+    implementation squareup.retrofitGson
+    implementation squareup.okHttp
+    implementation squareup.loggingInterceptor
+
+    implementation joda.time
+
+    implementation glide.glide
+    implementation glide.glideTransformations
+    implementation glide.glideGpuLibrary
+
+    implementation rx.java
+    implementation rx.android
+    implementation rx.retrofitAdapter
+
+    kapt dagger.compiler
+    kapt dagger.processor
+    implementation dagger.di
+    implementation dagger.androidSupport
+    compileOnly dagger.jsr250
+
+    implementation google.guava
+    implementation google.gson
+
+    implementation androidx.appcompat
+    implementation androidx.material
+    implementation androidx.recyclerview
+    implementation androidx.constraintLayout
+    implementation androidx.room
+
+    implementation androidx.lifecycleExtensions
+    kapt androidx.lifecycleCompiler
+    testImplementation androidx.archCoreTesting
+
+    debugImplementation squareup.leakCanaryDebug
+    releaseImplementation squareup.leakCanaryRelease
+
+    testImplementation squareup.leakCanaryTest
+    testImplementation tests.junit
+    testImplementation tests.mockito
+    testImplementation tests.mockitoKotlin
+    testImplementation jetbrains.kotlinTest
+
+    testImplementation rx.java
+    testImplementation rx.android
+
+    kaptTest dagger.compiler
+    kaptTest dagger.processor
+
+    testImplementation dagger.di
+    testImplementation dagger.androidSupport
+    testCompileOnly dagger.jsr250
+}
